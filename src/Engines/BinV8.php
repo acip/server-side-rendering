@@ -14,7 +14,6 @@ class BinV8 implements Engine
 
     public function __construct(string $execV8Path = null)
     {
-
         $this->execV8Path = $execV8Path ?? __DIR__ . '/../../bin/v8';
     }
 
@@ -23,7 +22,7 @@ class BinV8 implements Engine
         $command = [
           $this->execV8Path,
           '-e',
-         $script
+         $script,
         ];
 
         $process = new Process($command, dirname($this->execV8Path));
@@ -31,7 +30,7 @@ class BinV8 implements Engine
         try {
             return substr($process->mustRun()->getOutput(), 0, -1);
         } catch (ProcessFailedException $exception) {
-          var_export($exception->getMessage());
+            var_export($exception->getMessage());
 
             throw EngineError::withException($exception);
         }
