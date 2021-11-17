@@ -18,6 +18,7 @@ class BinV8Test extends TestCase
         $this->assertEquals("Hello, world!", $result);
     }
 
+
     /** @test */
     public function it_throws_an_engine_error_when_a_script_is_invalid()
     {
