@@ -1,0 +1,5 @@
+#!/bin/bash
+# sudo apt update
+# sudo apt install libv8-dev -y
+g++ -Os v8.cc -o ../v8 -lv8  -DV8_COMPRESS_POINTERS -pthread -std=c++14   -Wl,-R./
+cp `readlink -e /usr/lib/libv8.so` ../
