@@ -31,6 +31,9 @@ jobs:
                   echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
             - name: Install dependencies
               run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+            
+            - name: Execute performance tests
+              run: composer bench
 
             - name: Execute tests
               run: vendor/bin/phpunit

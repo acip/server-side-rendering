@@ -24,7 +24,7 @@ class NodeBench
      */
     public function benchNode()
     {
-        $engine = new Node('/home/dev/.nvm/versions/node/v10.15.0/bin/node', __DIR__ . '/../temp');
-        $result = $engine->run("console.log('Hello, world!')");
+        $engine = new Node($this->nodePath, $this->tempPath);
+        $engine->run("console.log('Hello, world!')");
     }
 }
